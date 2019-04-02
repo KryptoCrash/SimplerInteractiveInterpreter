@@ -1,0 +1,2 @@
+# SimplerInteractiveInterpreter
+For codewars
