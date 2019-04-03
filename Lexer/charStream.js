@@ -1,7 +1,7 @@
 class charStream {
   constructor(program) {
     this.index = 0
-    this.program = program.split('')
+    this.program = program.split('').filter(c => !((/\s/).test(c)))
   }
   next() {
     return this.program[this.index++]
