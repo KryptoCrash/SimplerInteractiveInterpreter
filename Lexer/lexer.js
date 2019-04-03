@@ -1,7 +1,6 @@
 class lexer {
   constructor(stream) {
     this.stream = stream
-    console.log(stream)
   }
   isDigit(char) {
   	return (/\d/).test(char)
