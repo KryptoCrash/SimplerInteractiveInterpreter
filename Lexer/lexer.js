@@ -1,4 +1,4 @@
-class lexer {
+class Lexer {
   constructor(stream) {
     this.stream = stream
   }
