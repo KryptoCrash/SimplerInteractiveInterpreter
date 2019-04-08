@@ -17,8 +17,8 @@ class Parser {
             while (this.stream.peek().type != 'groupEnd') {
                 str += this.stream.next().value
             }
-            stream.next()
-            return this.led(new Parser(new Lexer(new charStream(str))).expr(), stream.next())
+            this.stream.next()
+            return this.led(new Parser(new Lexer(new charStream(str))).expr(), this.stream.next())
         }
         while (this.bp[this.stream.peek().value] > rbp) {
             left = this.led(left, this.stream.next())
