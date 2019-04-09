@@ -24,7 +24,6 @@ class Parser {
          this.nLayer--
       }
         while (((this.bp[this.stream.peek().value])+(this.nLayer*3)) > rbp) {
-          console.log('hi')
             left = this.led(left, this.stream.next())
         }
         return left
