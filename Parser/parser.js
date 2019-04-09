@@ -31,6 +31,7 @@ class Parser {
     }
     led(left, operator) {
         return {
+            type: operator.type,
             left: left,
             operator: operator,
             right: this.expr((this.bp[operator.value]) + (this.nLayer * 3))
