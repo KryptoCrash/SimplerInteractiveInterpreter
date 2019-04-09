@@ -9,21 +9,21 @@ class Parser {
             '/': 3,
             '%': 3
         }
-      this.nLayer = 0
+        this.nLayer = 0
     }
     expr(rbp = 0) {
         let left = this.stream.next()
         if (left.type == 'groupStart') {
             this.nLayer++
             left = this.stream.next()
-            
+
             left = this.led(left, this.stream.next())
         }
-      if(this.stream.peek().type=='groupEnd') {
-        this.stream.next()
-         this.nLayer--
-      }
-        while (((this.bp[this.stream.peek().value])+(this.nLayer*3)) > rbp) {
+        if (this.stream.peek().type == 'groupEnd') {
+            this.stream.next()
+            this.nLayer--
+        }
+        while (((this.bp[this.stream.peek().value]) + (this.nLayer * 3)) > rbp) {
             left = this.led(left, this.stream.next())
         }
         return left
@@ -32,7 +32,7 @@ class Parser {
         return {
             left: left,
             operator: operator,
-            right: this.expr((this.bp[operator.value])+(this.nLayer*3))
+            right: this.expr((this.bp[operator.value]) + (this.nLayer * 3))
         }
     }
 }
