@@ -14,9 +14,10 @@ class Parser {
     expr(rbp = 0) {
         let left = this.stream.next()
         if (left.type == 'groupStart') {
-            this.nLayer++
-            left = this.stream.next()
-
+            while (left.type == 'groupStart') {
+                this.nLayer++
+                left = this.stream.next()
+            }
             left = this.led(left, this.stream.next())
         }
         if (this.stream.peek().type == 'groupEnd') {

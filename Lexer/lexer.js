@@ -89,7 +89,7 @@ class Lexer {
     next() {
         return this.tokenizeNext()
     }
-    continue () {
+    continue() {
         return this.stream.continue()
     }
 }
